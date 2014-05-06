@@ -2,7 +2,6 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from api.models import Architecture, LANGUAGE_CHOICES, STYLE_CHOICES
 
-
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
