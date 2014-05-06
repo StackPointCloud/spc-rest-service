@@ -1,4 +1,5 @@
 import pika
+import logging
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
@@ -8,7 +9,7 @@ from api.models import Architecture
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import logging
+from rest_framework.views import APIView
 
 logging.basicConfig()
 
@@ -34,18 +35,14 @@ class ArchitectureViewSet(viewsets.ModelViewSet):
 	queryset = Architecture.objects.all()
 	serializer_class = ArchitectureSerializer
 
-@api_view(['GET', 'POST'])
-def architecture_list(request, format=None):
-    """
-    List all architecture requests or create a new one.
-    """
-    if request.method == 'GET':
+class ArchitectureList(APIView):
+    def get(self, request, format=None):
         architectures = Architecture.objects.all()
         serializer = ArchitectureSerializer(architectures, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST':
-    	serializer = ArchitectureSerializer(data=request.DATA)
+    def post(self, request, format=None):
+        serializer = ArchitectureSerializer(data=request.DATA)
         if serializer.is_valid():
             #credentials = pika.PlainCredentials('stackpointcloud', 'stackpointcloud')
             connection = pika.BlockingConnection(pika.ConnectionParameters('localhost',5672))
@@ -57,27 +54,27 @@ def architecture_list(request, format=None):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET', 'PUT', 'DELETE'])
-def architecture_detail(request, pk, format=None):
-    """
-    Retrieve, update, or delete an architecture request.
-    """
-    try:
-        architecture = Architecture.objects.get(pk=pk)
-    except Architecture.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+class ArchitectureDetail(APIView):
+    def get_object(self, pk):
+        try:
+            return Architecture.objects.get(pk=pk)
+        except Architecture.DoesNotExist:
+            raise Http404
 
-    if request.method == 'GET':
+    def get(self, request, pk, format=None):
+        architecture = get_object(pk)
         serializer = ArchitectureSerializer(architecture)
         return Response(serializer.data)
 
-    elif request.method == 'PUT':
-        serializer = ArchitectureSerializer(architecture, data=request.DATA)
+    def put(self, request, pk, format=None):
+    	architecture = get_object(pk)
+    	serializer = ArchitectureSerializer(architecture, data=request.DATA)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'DELETE':
-        architecture.delete()
+    def delete(self, request, pk, format=None):
+    	architecture = get_object(pk)
+    	architecture.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
