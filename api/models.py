@@ -15,12 +15,8 @@ class Architecture(models.Model):
 	# medium
 	architecture_instance_size = models.CharField(max_length=50, blank=False)
 
-	# security size
+	# small
 	architecture_security_size = models.CharField(max_length=50, blank=True, default='small')
 
-	
-
-
-
-
-	# 
+	class Meta:
+		ordering = ('created',)
