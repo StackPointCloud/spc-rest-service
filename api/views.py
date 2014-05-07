@@ -1,6 +1,3 @@
-import pika
-import logging
-
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from api.serializers import UserSerializer, GroupSerializer, ArchitectureSerializer
@@ -10,8 +7,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
-logging.basicConfig()
+from api.message_queue import submit_mq_request
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -44,12 +40,7 @@ class ArchitectureList(APIView):
     def post(self, request, format=None):
         serializer = ArchitectureSerializer(data=request.DATA)
         if serializer.is_valid():
-            #credentials = pika.PlainCredentials('stackpointcloud', 'stackpointcloud')
-            connection = pika.BlockingConnection(pika.ConnectionParameters('localhost',5672))
-            channel = connection.channel()
-            channel.queue_declare(queue='hello')
-            channel.basic_publish(exchange='', routing_key='hello', body='Hello World!')
-            connection.close()
+            submit_mq_request(self, request.DATA)
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
