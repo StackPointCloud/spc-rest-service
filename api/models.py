@@ -8,15 +8,10 @@ STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 
 class Architecture(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
-	
-	# apache_none_mongo
-	architecture_image = models.CharField(max_length=50, blank=False)
-	
-	# medium
-	architecture_instance_size = models.CharField(max_length=50, blank=False)
 
-	# small
-	architecture_security_size = models.CharField(max_length=50, blank=True, default='small')
+	architecture_image = models.CharField(max_length=50, blank=False) # defines the software built out in the architecture.
+	architecture_instance_size = models.CharField(max_length=50, blank=False) # defines the size of the build out, i.e. total # of servers
+	architecture_security_size = models.CharField(max_length=50, blank=True, default='small') # defines how much we harden the environment.
 
 	class Meta:
 		ordering = ('created',)

@@ -15,8 +15,8 @@ def submit_mq_request(self, data):
 #	credentials = pika.PlainCredentials('stackpointcloud', 'stackpointcloud')
 	connection = pika.BlockingConnection(pika.ConnectionParameters('localhost',5672))
 	channel = connection.channel()
-	channel.queue_declare(queue='compute')
+	channel.queue_declare(queue='build')
 	json_data = json.dumps(data)
-	channel.basic_publish(exchange='', routing_key='compute', properties=pika.BasicProperties(content_type='application/json'),body=json_data)
+	channel.basic_publish(exchange='', routing_key='build', properties=pika.BasicProperties(content_type='application/json'),body=json_data)
 	connection.close()
 	return
