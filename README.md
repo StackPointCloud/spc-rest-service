@@ -17,7 +17,6 @@ cd spc-rest-service
 mkvirtualenv your_virtual_env_name
 pip install -r requirements.txt
 python manage.py runserver
-
 `````
 
 Notes
