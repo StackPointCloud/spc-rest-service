@@ -1,0 +1,54 @@
+INFO:root:STARTING ################
+INFO:root:{u'architecture_security_size': u'small', u'architecture_image': u'iis_none_sql', u'architecture_instance_size': u'medium'}
+INFO:root:D###########################
+INFO:pika.adapters.base_connection:Connecting to ::1:5672
+WARNING:pika.adapters.base_connection:Connection to ::1:5672 failed: [Errno 61] Connection refused
+INFO:pika.adapters.base_connection:Connecting to 127.0.0.1:5672
+WARNING:pika.adapters.base_connection:Connection to 127.0.0.1:5672 failed: [Errno 61] Connection refused
+INFO:pika.adapters.base_connection:Connecting to fe80::1%lo0:5672
+WARNING:pika.adapters.base_connection:Connection to fe80::1%lo0:5672 failed: [Errno 61] Connection refused
+INFO:root:STARTING ################
+INFO:root:{u'architecture_security_size': u'small', u'architecture_image': u'iis_none_sql', u'architecture_instance_size': u'medium'}
+INFO:root:D###########################
+INFO:pika.adapters.base_connection:Connecting to ::1:5672
+WARNING:pika.adapters.base_connection:Connection to ::1:5672 failed: [Errno 61] Connection refused
+INFO:pika.adapters.base_connection:Connecting to 127.0.0.1:5672
+INFO:pika.adapters.blocking_connection:Closing connection (200): Normal shutdown
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
+INFO:root:STARTING ################
+INFO:root:{u'architecture_security_size': u'small', u'architecture_image': u'iis_none_sql', u'architecture_instance_size': u'medium'}
+INFO:root:D###########################
+INFO:pika.adapters.base_connection:Connecting to ::1:5672
+WARNING:pika.adapters.base_connection:Connection to ::1:5672 failed: [Errno 61] Connection refused
+INFO:pika.adapters.base_connection:Connecting to 127.0.0.1:5672
+INFO:pika.adapters.blocking_connection:Closing connection (200): Normal shutdown
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
+INFO:root:STARTING ################
+INFO:root:{u'architecture_security_size': u'small', u'architecture_image': u'iis_none_sql', u'architecture_instance_size': u'medium'}
+INFO:root:D###########################
+INFO:pika.adapters.base_connection:Connecting to ::1:5672
+WARNING:pika.adapters.base_connection:Connection to ::1:5672 failed: [Errno 61] Connection refused
+INFO:pika.adapters.base_connection:Connecting to 127.0.0.1:5672
+INFO:pika.adapters.blocking_connection:Closing connection (200): Normal shutdown
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
+INFO:root:STARTING ################
+INFO:root:{u'architecture_security_size': u'small', u'architecture_image': u'iis_none_sql', u'architecture_instance_size': u'medium'}
+INFO:root:D###########################
+INFO:pika.adapters.base_connection:Connecting to ::1:5672
+WARNING:pika.adapters.base_connection:Connection to ::1:5672 failed: [Errno 61] Connection refused
+INFO:pika.adapters.base_connection:Connecting to 127.0.0.1:5672
+INFO:pika.adapters.blocking_connection:Closing connection (200): Normal shutdown
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
+INFO:root:STARTING ################
+INFO:root:{u'architecture_security_size': u'small', u'architecture_image': u'iis_none_sql', u'architecture_instance_size': u'medium'}
+INFO:root:D###########################
+INFO:pika.adapters.base_connection:Connecting to ::1:5672
+WARNING:pika.adapters.base_connection:Connection to ::1:5672 failed: [Errno 61] Connection refused
+INFO:pika.adapters.base_connection:Connecting to 127.0.0.1:5672
+INFO:pika.adapters.blocking_connection:Closing connection (200): Normal shutdown
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
+WARNING:pika.adapters.base_connection:Unknown state on disconnect: 0
