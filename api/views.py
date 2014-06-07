@@ -38,7 +38,7 @@ class ArchitectureList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = ArchitectureSerializer(data=request.DATA)
+        serializer = ArchitectureSerializer(data=request.DATA, many=True)
         if serializer.is_valid():
             submit_mq_request(self, request.DATA)
             serializer.save()
