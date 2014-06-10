@@ -1,7 +1,6 @@
 SPC REST Service
 ================
-This is a fork from Matt's code, available at https://github.com/baldwinSPC/spc-rest-service.git
-These instructions leverage this repository / fork.
+These instructions leverage this repository / fork. This is a fork from Matt's code, available at https://github.com/baldwinSPC/spc-rest-service.git
 
 The Setup
 ---------
