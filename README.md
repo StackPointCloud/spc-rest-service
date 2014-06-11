@@ -11,6 +11,11 @@ First, let's grab the code:
 git clone https://github.com/StackPointCloud/spc-rest-service.git
 `````
 
+Want to grab a branch?
+```
+git clone -b branchName https://github.com/StackPointCloud/spc-rest-service.git
+```
+
 Next, let's get it running:
 
 `````
