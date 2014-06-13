@@ -1,5 +1,6 @@
 SPC REST Service
 ================
+These instructions leverage this repository / fork. This is a fork from Matt's code, available at https://github.com/baldwinSPC/spc-rest-service.git
 
 The Setup
 ---------
@@ -7,8 +8,13 @@ The Setup
 First, let's grab the code:
 
 `````
-git clone https://github.com/baldwinSPC/spc-rest-service.git
+git clone https://github.com/StackPointCloud/spc-rest-service.git
 `````
+
+Want to grab a branch?
+```
+git clone -b branchName https://github.com/StackPointCloud/spc-rest-service.git
+```
 
 Next, let's get it running:
 
