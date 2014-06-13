@@ -96,3 +96,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
     'PAGINATE_BY': 10
 }
+
+AMQP = {
+    'HOST' : os.getenv('AMQP_HOST', '127.0.0.1'),
+    'PORT' : os.getenv('AMQP_PORT', 5672)
+}

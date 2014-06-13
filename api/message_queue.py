@@ -2,6 +2,8 @@ import pika
 import logging
 import json
 
+from django.conf import settings
+
 logging.basicConfig(filename='message_queue.log',level=logging.INFO)
 
 __all__ = [
@@ -13,7 +15,7 @@ def submit_mq_request(self, data):
 	logging.info(data)
 	logging.info('D###########################')
 #	credentials = pika.PlainCredentials('stackpointcloud', 'stackpointcloud')
-	connection = pika.BlockingConnection(pika.ConnectionParameters('localhost',5672))
+	connection = pika.BlockingConnection(pika.ConnectionParameters(settings.AMQP['HOST'], int(settings.AMQP['PORT'])))
 	channel = connection.channel()
 	channel.queue_declare(queue='build')
 	json_data = json.dumps(data)
